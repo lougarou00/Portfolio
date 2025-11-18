@@ -67,6 +67,31 @@
     .status-wip {
         background-color: #f59e0b; /* bg-amber-500 */
     }
+
+    @media (max-width: 1023px) { /* Appliqué en dessous de 'lg' (1024px) */
+        #robot {
+            max-height: 40vh; /* Réduire la taille sur mobile */
+            top: 45%; /* Descendre légèrement pour laisser de la place au texte */
+            left: -50% !important; /* Décalage initial plus important */
+        }
+        #boy {
+            max-height: 30vh; /* Réduire la taille sur mobile */
+            top: 45%;
+            left: 150% !important; /* Décalage initial plus important */
+        }
+        #intro-text {
+            top: 10%; /* Placer le texte en haut pour éviter le chevauchement */
+            bottom: auto;
+            position: absolute;
+        }
+        /* Ajustement de la position finale des images pour le mobile */
+        #robot.initial-move {
+            left: 20% !important; 
+        }
+        #boy.initial-move {
+            left: 80% !important; 
+        }
+    }
   </style>
 </head>
 
@@ -276,38 +301,96 @@
         </div>
       </footer>
   
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const robot = document.getElementById('robot');
-        const boy = document.getElementById('boy');
-        const introText = document.getElementById('intro-text');
-        const subtitle = document.getElementById('subtitle');
-        const socialIcons = document.getElementById('social-icons');
-
-        const animationDuration = 2000; 
-        const startDelay = 100;
-
-        setTimeout(() => {
-            robot.style.left = '30%'; 
-            boy.style.left = '60%'; 
-
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const robot = document.getElementById('robot');
+            const boy = document.getElementById('boy');
+            const introText = document.getElementById('intro-text');
+            const subtitle = document.getElementById('subtitle');
+            const socialIcons = document.getElementById('social-icons');
+            
+            // ÉLÉMENTS POUR LE MENU MOBILE
+            const menuToggle = document.getElementById('menu-toggle');
+            const navMenu = document.getElementById('nav-menu');
+            
+            const animationDuration = 2000; 
+            const startDelay = 100;
+            
+            // --- VÉRIFICATION DE LA PRÉSENCE DES ÉLÉMENTS CRITIQUES ---
+            // Si les images ne sont pas trouvées, on arrête l'exécution de l'animation.
+            if (!robot || !boy || !introText || !subtitle || !socialIcons) {
+                 console.error("Erreur: Un ou plusieurs éléments d'animation sont manquants (robot, boy, introText, etc.).");
+                 return; 
+            }
+    
+            // --- GESTION DU MENU MOBILE (Doit être sécurisé) ---
+            if (menuToggle && navMenu) {
+                menuToggle.addEventListener('click', () => {
+                    navMenu.classList.toggle('hidden');
+                });
+                
+                // Fermer le menu après avoir cliqué sur un lien (sur mobile)
+                navMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        requestAnimationFrame(() => {
+                            if (!navMenu.classList.contains('hidden')) {
+                                navMenu.classList.add('hidden');
+                            }
+                        });
+                    });
+                });
+            }
+    
+    
+            // --- GESTION DE L'ANIMATION D'ENTRÉE ---
             setTimeout(() => {
-                introText.classList.remove('initial-hidden');
-                introText.classList.add('animate-fadeIn'); 
-
+                // Déterminer la position finale en fonction de la taille de l'écran
+                let finalRobotPosition, finalBoyPosition;
+                const isMobile = window.innerWidth < 1024;
+                
+                if (isMobile) {
+                    finalRobotPosition = '20%'; 
+                    finalBoyPosition = '80%';
+                } else {
+                    finalRobotPosition = '30%'; 
+                    finalBoyPosition = '53%';
+                }
+    
+                // Lancement de l'animation des images
+                robot.style.left = finalRobotPosition; 
+                boy.style.left = finalBoyPosition; 
+    
+                // Ajout d'une classe pour cibler les positions finales dans les médias queries CSS
+                robot.classList.add('initial-move');
+                boy.classList.add('initial-move');
+                
+                // Corrige le positionnement du texte sur mobile
+                if (isMobile) {
+                    const textContainer = document.querySelector('.intro-text-container');
+                    if(textContainer) { // S'assurer que le conteneur existe
+                        textContainer.classList.remove('bottom-1');
+                        textContainer.classList.add('top-20'); 
+                    }
+                }
+    
+                // Séquence d'apparition du texte
                 setTimeout(() => {
-                    subtitle.classList.remove('initial-hidden');
-                    subtitle.classList.add('animate-glow'); 
-
-                    socialIcons.classList.remove('initial-hidden');
-                    socialIcons.classList.add('animate-fadeIn'); 
-                }, 800); 
-
-            }, animationDuration - 100); 
-
-        }, startDelay);
-    });
-  </script>
+                    introText.classList.remove('initial-hidden');
+                    introText.classList.add('animate-fadeIn'); 
+    
+                    setTimeout(() => {
+                        subtitle.classList.remove('initial-hidden');
+                        subtitle.classList.add('animate-glow'); 
+    
+                        socialIcons.classList.remove('initial-hidden');
+                        socialIcons.classList.add('animate-fadeIn'); 
+                    }, 800); 
+    
+                }, animationDuration - 100); 
+    
+            }, startDelay);
+        });
+      </script>
 
 </body>
 </html>
