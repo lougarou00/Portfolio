@@ -94,23 +94,33 @@
 
 <body class="bg-gradient-to-br from-[#1a1a2e] to-[#16213e] text-white font-poppins pt-20">
 
-  <header class="fixed top-0 left-0 w-full bg-[#1a1a2e]/95 backdrop-blur-sm shadow-xl z-50">
-    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-        <a href="#home" class="text-2xl font-bold tracking-wider hover:text-[#6ab2ff] transition duration-300">
-            A-A
-        </a>
-        <div class="hidden lg:flex space-x-8 text-sm font-medium">
-            <a href="#home" class="hover:text-[#6ab2ff] transition duration-300">Home</a>
-            <a href="#about-me" class="hover:text-[#6ab2ff] transition duration-300">About Me</a>
-            <a href="#skills" class="hover:text-[#6ab2ff] transition duration-300">Skills</a>
-            <a href="#honors" class="hover:text-[#6ab2ff] transition duration-300">Honors and Awards</a>
-            <a href="#projects" class="hover:text-[#6ab2ff] transition duration-300">Projects</a>
-        </div>
-        <button class="lg:hidden text-2xl hover:text-[#6ab2ff]">
-            <i class="fas fa-bars"></i>
-        </button>
-    </nav>
-  </header>
+    <header class="fixed top-0 left-0 w-full bg-[#1a1a2e]/95 backdrop-blur-sm shadow-xl z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center relative">
+            <a href="#home" class="text-2xl font-bold tracking-wider hover:text-[#6ab2ff] transition duration-300">
+                A-A
+            </a>
+            
+            <div id="nav-desktop" class="hidden lg:flex space-x-8 text-sm font-medium">
+                <a href="#home" class="hover:text-[#6ab2ff] transition duration-300">Home</a>
+                <a href="#about-me" class="hover:text-[#6ab2ff] transition duration-300">About Me</a>
+                <a href="#skills" class="hover:text-[#6ab2ff] transition duration-300">Skills</a>
+                <a href="#honors" class="hover:text-[#6ab2ff] transition duration-300">Honors and Awards</a>
+                <a href="#projects" class="hover:text-[#6ab2ff] transition duration-300">Projects</a>
+            </div>
+    
+            <button id="menu-toggle" class="lg:hidden text-2xl hover:text-[#6ab2ff] z-50">
+                <i class="fas fa-bars"></i>
+            </button>
+    
+            <div id="nav-menu" class="hidden lg:hidden absolute top-full left-0 right-0 w-full bg-[#1a1a2e] shadow-lg flex flex-col items-center py-4 space-y-3 z-40">
+                <a href="#home" class="hover:text-[#6ab2ff] transition duration-300 w-full text-center py-2">Home</a>
+                <a href="#about-me" class="hover:text-[#6ab2ff] transition duration-300 w-full text-center py-2">About Me</a>
+                <a href="#skills" class="hover:text-[#6ab2ff] transition duration-300 w-full text-center py-2">Skills</a>
+                <a href="#honors" class="hover:text-[#6ab2ff] transition duration-300 w-full text-center py-2">Honors and Awards</a>
+                <a href="#projects" class="hover:text-[#6ab2ff] transition duration-300 w-full text-center py-2">Projects</a>
+            </div>
+        </nav>
+      </header>
   
   <div id="home" class="relative w-full min-h-[75vh] flex flex-col items-center justify-start overflow-hidden p-6 pb-8">
     <img id="robot" class="absolute top-[35%] -translate-y-1/2 left-[-40%] max-h-[50vh] brightness-90 contrast-[1.1] z-20 animated-image" src="robot_arm.png" alt="Bras robotique" />
