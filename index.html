@@ -226,7 +226,8 @@
 
   </section>
 
-  <section id="projects" class="flex flex-col items-center justify-center bg-[#0f1626] p-12">
+  <!-- PROJECT SECTION MODIFIED -->
+<section id="projects" class="flex flex-col items-center justify-center bg-[#0f1626] p-12">
     <h2 class="text-4xl lg:text-5xl font-bold mb-12 text-center text-[#6ab2ff]">Projects</h2>
     
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 w-full max-w-6xl">
@@ -255,26 +256,29 @@
             </div>
         </div>
 
-        <!-- Projet actuel IA -->
+        <!-- CivicAI Project -->
         <div class="project-card">
             <div>
                 <h3 class="text-2xl font-bold mb-3 text-white">
-                    AI Message Intelligence Tool
+                    CivicAI — Document Analysis
                     <span class="project-status status-completed">Online</span>
                 </h3>
                 <p class="text-sm font-light mb-3 text-gray-400">
                     <strong class="text-white">Role :</strong> Fullstack & AI Developer
                 </p>
                 <p class="text-base mb-4 text-gray-300">
-                    Developed an open-source AI-powered message analysis platform that summarizes text, detects sentiment, identifies intention, assigns priority, and categorizes messages, fully deployed and running online.
+                    Developed a web platform that summarizes, classifies, and extracts keywords from documents and tickets using a local LLM (Mistral 7B). Professional, minimalistic interface for recruiters and clients.
                 </p>
                 <p class="text-sm mb-6">
-                    <strong class="text-white">Stack :</strong> Python, FastAPI, Tailwind CSS, llama.cpp (local AI)
+                    <strong class="text-white">Stack :</strong> Python, FastAPI, Jinja2, Tailwind CSS, LLM Mistral 7B
                 </p>
             </div>
-            <div class="text-center mt-auto">
-                <a href="https://smart-inbox.duckdns.org/" target="_blank" class="inline-block px-6 py-2 text-sm font-semibold text-white bg-green-600 rounded-full hover:bg-green-700 transition duration-300">
-                    See the project <i class="fas fa-external-link-alt ml-2"></i>
+            <div class="text-center mt-auto flex flex-col gap-2">
+                <a href="https://civic-analyzer.duckdns.org/" target="_blank" class="inline-block px-6 py-2 text-sm font-semibold text-white bg-green-600 rounded-full hover:bg-green-700 transition duration-300">
+                    Visit Live <i class="fas fa-external-link-alt ml-2"></i>
+                </a>
+                <a href="https://github.com/lougarou00/civicai" target="_blank" class="inline-block px-6 py-2 text-sm font-semibold text-white bg-gray-700 rounded-full hover:bg-gray-800 transition duration-300">
+                    GitHub Repo <i class="fab fa-github ml-2"></i>
                 </a>
             </div>
         </div>
@@ -283,14 +287,14 @@
         <div class="project-card">
             <div>
                 <h3 class="text-2xl font-bold mb-3 text-white">
-                    Educational video game (Knowledge Guardian)
+                    Educational Video Game (Knowledge Guardian)
                     <span class="project-status status-completed">Online</span>
                 </h3>
                 <p class="text-sm font-light mb-3 text-gray-400">
                     <strong class="text-white">Role:</strong> Game Designer
                 </p>
                 <p class="text-base mb-4 text-gray-300">
-                    Development of an educational video game aimed at making the learning of school subjects more engaging and interactive, by combining pedagogy and playful experience to motivate students.
+                    Development of an educational video game to make learning school subjects engaging and interactive by combining pedagogy and playful experience.
                 </p>
                 <p class="text-sm mb-6">
                     <strong class="text-white">Stack:</strong> Godot
